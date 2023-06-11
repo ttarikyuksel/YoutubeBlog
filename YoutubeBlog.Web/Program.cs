@@ -2,15 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using YoutubeBlog.Data.Context;
 using YoutubeBlog.Data.Extensions;
+using YoutubeBlog.Service.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
-
+ 
 builder.Services.LoadDataLayerExtension(builder.Configuration);
+builder.Services.LoadServiceLayerExtension();
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//Razor Runtime Eklentisi sonda eklendi ".AddRazorRuntimeCompilation();"
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 
 var app = builder.Build();
@@ -30,8 +30,17 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//Eklendi Area iþlemleri için
+app.UseEndpoints(endpoints =>
+{
+        endpoints.MapAreaControllerRoute(
+        name : "Admin",
+        areaName : "Admin",
+        pattern : "Admin/{controller=Home}/{action=Index}/{id?}"        
+        );
+    endpoints.MapDefaultControllerRoute();
+    
+});
 
 app.Run();

@@ -80,11 +80,11 @@ namespace YoutubeBlog.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("97cc1628-e96f-44a7-888a-b240db8dceab"),
+                            Id = new Guid("0c6ccca3-9c49-4d36-8406-6057ebd486ac"),
                             CategoryId = new Guid("29713c56-e93a-475f-a596-ff19fe254b1f"),
                             Content = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 7, 13, 35, 41, 852, DateTimeKind.Local).AddTicks(4465),
+                            CreatedDate = new DateTime(2023, 6, 10, 13, 36, 36, 55, DateTimeKind.Local).AddTicks(1330),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageId = new Guid("00a5354d-0d30-4576-a128-78efcbed9849"),
@@ -96,11 +96,11 @@ namespace YoutubeBlog.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b58cd382-09de-4176-813d-67898aa5c7b9"),
+                            Id = new Guid("addec8c4-e291-4c99-8203-9e782f416f7f"),
                             CategoryId = new Guid("43df9b9a-a17f-449b-a79d-414a684e7350"),
                             Content = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 7, 13, 35, 41, 852, DateTimeKind.Local).AddTicks(4473),
+                            CreatedDate = new DateTime(2023, 6, 10, 13, 36, 36, 55, DateTimeKind.Local).AddTicks(1345),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageId = new Guid("be2c73cf-c312-485e-be69-7f7a7027829e"),
@@ -155,7 +155,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("29713c56-e93a-475f-a596-ff19fe254b1f"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 7, 13, 35, 41, 852, DateTimeKind.Local).AddTicks(4629),
+                            CreatedDate = new DateTime(2023, 6, 10, 13, 36, 36, 55, DateTimeKind.Local).AddTicks(1483),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
@@ -167,7 +167,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("43df9b9a-a17f-449b-a79d-414a684e7350"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 7, 13, 35, 41, 852, DateTimeKind.Local).AddTicks(4632),
+                            CreatedDate = new DateTime(2023, 6, 10, 13, 36, 36, 55, DateTimeKind.Local).AddTicks(1485),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
@@ -224,7 +224,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("00a5354d-0d30-4576-a128-78efcbed9849"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 7, 13, 35, 41, 852, DateTimeKind.Local).AddTicks(4716),
+                            CreatedDate = new DateTime(2023, 6, 10, 13, 36, 36, 55, DateTimeKind.Local).AddTicks(1554),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileName = "images/testimage",
@@ -237,7 +237,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("be2c73cf-c312-485e-be69-7f7a7027829e"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 7, 13, 35, 41, 852, DateTimeKind.Local).AddTicks(4719),
+                            CreatedDate = new DateTime(2023, 6, 10, 13, 36, 36, 55, DateTimeKind.Local).AddTicks(1556),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileName = "images/testimage",

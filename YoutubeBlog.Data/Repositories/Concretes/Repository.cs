@@ -72,9 +72,14 @@ namespace YoutubeBlog.Data.Repositories.Concretes
             return await Table.AnyAsync(predicate);
         }
 
-        public async Task<int> CountAsync(Expression<Func<T, bool>> predicate = null)
-        {
-            return await Table.CountAsync(predicate);
-        }
+        //public async Task<int> CountAsync(Expression<Func<T, bool>> predicate = null)
+        //{
+        //    return await Table.CountAsync(predicate);
+        //}
+
+        //public async Task<int> CountAsync(Expression<Func<T, int>> predicate = null)
+        //{
+        //    return await Table.CountAsync(predicate);
+        //}
     }
 }
