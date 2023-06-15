@@ -59,7 +59,8 @@ namespace YoutubeBlog.Data.Mappings
                 LastName="Yüksel",
                 PhoneNumberConfirmed=true,
                 EmailConfirmed=true,
-                SecurityStamp= Guid.NewGuid().ToString()
+                SecurityStamp= Guid.NewGuid().ToString(),
+                ImageId  = Guid.Parse("00A5354D-0D30-4576-A128-78EFCBED9849")
             };
 
             superadmin.PasswordHash = CreatePasswordHash(superadmin, "123456");
@@ -76,7 +77,9 @@ namespace YoutubeBlog.Data.Mappings
                 LastName = "Yüksel",
                 PhoneNumberConfirmed = false,
                 EmailConfirmed = false,
-                SecurityStamp = Guid.NewGuid().ToString()
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageId = Guid.Parse("BE2C73CF-C312-485E-BE69-7F7A7027829E")
+
             };
             admin.PasswordHash = CreatePasswordHash(superadmin, "123456");
 

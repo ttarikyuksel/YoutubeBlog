@@ -53,21 +53,21 @@ namespace YoutubeBlog.Data.Migrations
                         new
                         {
                             Id = new Guid("bb002044-fbd8-4fbc-9ee9-e532b9bdb7be"),
-                            ConcurrencyStamp = "e76149ec-ac70-4978-8cb1-ceaf5e3e3856",
+                            ConcurrencyStamp = "de1d4210-cae5-476a-88d9-ba1fec3c3b59",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = new Guid("309720ca-5c91-47d7-88f7-061f4b74669b"),
-                            ConcurrencyStamp = "4317fc16-c51c-4f1a-ab2d-8e3e6dea66f8",
+                            ConcurrencyStamp = "19dfe672-0a0a-417a-8734-b1c2d6199522",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("6ec808a4-e655-4304-acb8-ab6cc0fe485f"),
-                            ConcurrencyStamp = "ecfdd58a-5c49-49de-80a7-47b559fe4bd2",
+                            ConcurrencyStamp = "b41befa9-3235-405e-9917-622d5be433ca",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -121,6 +121,9 @@ namespace YoutubeBlog.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("ImageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -160,6 +163,8 @@ namespace YoutubeBlog.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ImageId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -175,18 +180,19 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("fc40cc76-ab31-4009-8a37-0136e80c88b7"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "abd9f144-2451-4174-876b-a6ce189697a2",
+                            ConcurrencyStamp = "2470de9d-1d92-494e-8750-2eddd5c577d8",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Tarık",
+                            ImageId = new Guid("00a5354d-0d30-4576-a128-78efcbed9849"),
                             LastName = "Yüksel",
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECF9gI6SB5CMLBMFakBpCa230oclh41AjZ9NjJFomV7W+9QoGzkFSNo/s8KNP+Y5qw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFzzSDh7NDTTLIau40YPPwsFdnApDmLb4zLxqzhG+QcjkwXDSwgJceZvMGM7p0W3lw==",
                             PhoneNumber = "+90543999999",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "845cf7de-501c-4406-8d4e-e144a2e2ee0f",
+                            SecurityStamp = "976fa708-7cdf-4e95-98cb-322dc2b6a612",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@gmail.com"
                         },
@@ -194,18 +200,19 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("e3e6b42a-4c32-4044-83df-f1ed9ae65bfe"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f9ae20d7-d1e5-4c85-9031-b5d8a0282191",
+                            ConcurrencyStamp = "66bdc20a-ecbb-4207-9ff2-86934f8bcb06",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Tekin",
+                            ImageId = new Guid("be2c73cf-c312-485e-be69-7f7a7027829e"),
                             LastName = "Yüksel",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBWgQLKaHva1bdzDA64RmF0T3b0GACDEmEHyajeSI1/QIl1n2eoDAX01EoJyGIiePQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAED7kW8wML3MDyB+pgwIG8QjwdGh/QHhUBMsiW5W4+0g8oaY81e9SzWQ8K7mw2TQCpA==",
                             PhoneNumber = "+90543999988",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5ddec446-e708-46e3-af9d-3462635bae5d",
+                            SecurityStamp = "49235920-f9e9-4543-b1d6-23e3368e0356",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
@@ -331,7 +338,7 @@ namespace YoutubeBlog.Data.Migrations
                     b.Property<DateTime>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ImageId")
+                    b.Property<Guid?>("ImageId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsDeleted")
@@ -348,6 +355,9 @@ namespace YoutubeBlog.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("ViewCount")
                         .HasColumnType("int");
 
@@ -357,16 +367,18 @@ namespace YoutubeBlog.Data.Migrations
 
                     b.HasIndex("ImageId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Articles");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f49b164d-da05-41b0-a9eb-532ea291ea4f"),
+                            Id = new Guid("ff17970f-2913-4ebf-b3a8-99087b7e4b8a"),
                             CategoryId = new Guid("29713c56-e93a-475f-a596-ff19fe254b1f"),
                             Content = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 13, 23, 1, 40, 155, DateTimeKind.Local).AddTicks(984),
+                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6257),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageId = new Guid("00a5354d-0d30-4576-a128-78efcbed9849"),
@@ -374,15 +386,16 @@ namespace YoutubeBlog.Data.Migrations
                             ModifiedBy = "Adminn",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                            UserId = new Guid("fc40cc76-ab31-4009-8a37-0136e80c88b7"),
                             ViewCount = 15
                         },
                         new
                         {
-                            Id = new Guid("dd447e15-d3d2-4931-b39c-dab4be65879b"),
+                            Id = new Guid("79795576-4108-43cc-9d2b-0ea3a27eadaf"),
                             CategoryId = new Guid("43df9b9a-a17f-449b-a79d-414a684e7350"),
                             Content = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 13, 23, 1, 40, 155, DateTimeKind.Local).AddTicks(999),
+                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6269),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageId = new Guid("be2c73cf-c312-485e-be69-7f7a7027829e"),
@@ -390,6 +403,7 @@ namespace YoutubeBlog.Data.Migrations
                             ModifiedBy = "Adminn",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
+                            UserId = new Guid("e3e6b42a-4c32-4044-83df-f1ed9ae65bfe"),
                             ViewCount = 25
                         });
                 });
@@ -437,7 +451,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("29713c56-e93a-475f-a596-ff19fe254b1f"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 13, 23, 1, 40, 155, DateTimeKind.Local).AddTicks(1150),
+                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6737),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
@@ -449,7 +463,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("43df9b9a-a17f-449b-a79d-414a684e7350"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 13, 23, 1, 40, 155, DateTimeKind.Local).AddTicks(1153),
+                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6756),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
@@ -506,7 +520,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("00a5354d-0d30-4576-a128-78efcbed9849"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 13, 23, 1, 40, 155, DateTimeKind.Local).AddTicks(1221),
+                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6878),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileName = "images/testimage",
@@ -519,7 +533,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("be2c73cf-c312-485e-be69-7f7a7027829e"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 13, 23, 1, 40, 155, DateTimeKind.Local).AddTicks(1223),
+                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6881),
                             DeletedBy = "Admin",
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileName = "images/testimage",
@@ -537,6 +551,17 @@ namespace YoutubeBlog.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("YoutubeBlog.Entity.Entities.AppUser", b =>
+                {
+                    b.HasOne("YoutubeBlog.Entity.Entities.Image", "Image")
+                        .WithMany("Users")
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("YoutubeBlog.Entity.Entities.AppUserClaim", b =>
@@ -591,13 +616,24 @@ namespace YoutubeBlog.Data.Migrations
 
                     b.HasOne("YoutubeBlog.Entity.Entities.Image", "Image")
                         .WithMany("Articles")
-                        .HasForeignKey("ImageId")
+                        .HasForeignKey("ImageId");
+
+                    b.HasOne("YoutubeBlog.Entity.Entities.AppUser", "User")
+                        .WithMany("Articles")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
 
                     b.Navigation("Image");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("YoutubeBlog.Entity.Entities.AppUser", b =>
+                {
+                    b.Navigation("Articles");
                 });
 
             modelBuilder.Entity("YoutubeBlog.Entity.Entities.Category", b =>
@@ -608,6 +644,8 @@ namespace YoutubeBlog.Data.Migrations
             modelBuilder.Entity("YoutubeBlog.Entity.Entities.Image", b =>
                 {
                     b.Navigation("Articles");
+
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

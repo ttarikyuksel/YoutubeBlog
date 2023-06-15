@@ -26,7 +26,8 @@ namespace YoutubeBlog.Data.Mappings
                 CreatedDate = DateTime.Now,
                 IsDeleted  =false,
                 DeletedBy = "Admin",
-                ModifiedBy ="Adminn"
+                ModifiedBy ="Adminn",
+                UserId = Guid.Parse("FC40CC76-AB31-4009-8A37-0136E80C88B7")
             },
             new Article
             {
@@ -40,7 +41,8 @@ namespace YoutubeBlog.Data.Mappings
                 CreatedDate = DateTime.Now,
                 IsDeleted = false,
                 DeletedBy = "Admin",
-                ModifiedBy = "Adminn"
+                ModifiedBy = "Adminn",
+                UserId = Guid.Parse("E3E6B42A-4C32-4044-83DF-F1ED9AE65BFE")
 
             });
 
