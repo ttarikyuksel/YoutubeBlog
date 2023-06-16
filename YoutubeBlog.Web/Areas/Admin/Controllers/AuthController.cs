@@ -55,5 +55,13 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
                 return View();
             }            
         }
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> LogOut()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home", new { Area = "" });
+        }
+
     }
 }

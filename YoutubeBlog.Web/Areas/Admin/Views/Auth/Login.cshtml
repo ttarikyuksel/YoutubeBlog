@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-@model UserLoginDto
+@model UserloginDto
 
 <!DOCTYPE html>
 
@@ -128,11 +128,11 @@
                         <form asp-controller="Auth" asp-action="Login" id="formAuthentication" class="mb-3" method="POST">
                             <div asp-validation-summary="All"></div>
                             <div class="mb-3">
-                                <label asp-for="Email"  for="email" class="form-label">Email Adresi</label>
-                                <input asp-for="Email" type="text"
+                                <label asp-for="Email" for="email" class="form-label">Email Adresi</label>
+                                <input asp-for="Email" type="email"
                                        class="form-control"
                                        id="email"
-                                       name="email-username"
+                                       name="email"
                                        placeholder="Lütfen Email Adresini Giriniz"
                                        autofocus />
                                        <span asp-validation-for="Email"></span>
@@ -152,7 +152,7 @@
                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                            aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                    <span asp-validation-for="Email"></span>
+                                    <span asp-validation-for="Password"></span>
                                 </div>
                             </div>
                             <div class="mb-3">
