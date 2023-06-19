@@ -13,7 +13,7 @@ namespace YoutubeBlog.Service.AutoMapper.Artices
     {
         public ArticleProfile() 
         {
-            CreateMap<ArticleDto,Article>().ReverseMap();            
+            CreateMap<ArticleDto,Article>().ReverseMap();
         } 
     }
 }
