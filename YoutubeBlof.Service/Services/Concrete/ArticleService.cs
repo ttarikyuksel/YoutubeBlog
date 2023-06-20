@@ -21,6 +21,22 @@ namespace YoutubeBlog.Service.Services.Concrete
             this.mapper = mapper;
         }
 
+        public async Task CreateArticleAsync(ArticleAddDto articleAddDto)
+        {
+            var userId = Guid.Parse("FC40CC76-AB31-4009-8A37-0136E80C88B7");
+            var article = new Article
+            {
+                Title = articleAddDto.Title,
+                Content = articleAddDto.Content,
+                CategoryId = articleAddDto.CategoryId,
+                UserId = userId
+                
+            };
+
+            await unitOfWork.GetRepository<Article>().AddAsync(article);
+            await unitOfWork.SaveAsync();
+        }
+
         public async Task<List<ArticleDto>> GetAllArticleWithCategoryNoneDeletedAsync()
         {
             

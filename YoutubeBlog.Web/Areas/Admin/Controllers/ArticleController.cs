@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using YoutubeBlog.Entity.DTOs.Articles;
 using YoutubeBlog.Service.Services.Abstractions;
 
 namespace YoutubeBlog.Web.Areas.Admin.Controllers
@@ -7,9 +8,11 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
     public class ArticleController : Controller
     {
         private readonly IArticleService articleService;
+        private readonly ICategoryService categoryService;
 
-        public ArticleController(IArticleService articleService)
+        public ArticleController(IArticleService articleService,ICategoryService categoryService)
         {
+            this.categoryService = categoryService;
             this.articleService = articleService;
         }
 
@@ -22,7 +25,16 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-            return View();
+            var categories = await categoryService.GetAllCategoriesNonDeleted();
+            return View(new ArticleAddDto { Categories = categories }); 
+        }
+        [HttpPost]
+        public async Task<IActionResult> Add(ArticleAddDto articleAddDto)
+        {
+            await articleService.CreateArticleAsync(articleAddDto);
+            RedirectToAction("Index", "Article", new { Areas = "Admin" });
+            var categories = await categoryService.GetAllCategoriesNonDeleted();
+            return View(new ArticleAddDto { Categories = categories });
         }
     }
 }

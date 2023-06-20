@@ -53,21 +53,21 @@ namespace YoutubeBlog.Data.Migrations
                         new
                         {
                             Id = new Guid("bb002044-fbd8-4fbc-9ee9-e532b9bdb7be"),
-                            ConcurrencyStamp = "de1d4210-cae5-476a-88d9-ba1fec3c3b59",
+                            ConcurrencyStamp = "587a3bce-a24d-41a5-bb78-06cd47995809",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = new Guid("309720ca-5c91-47d7-88f7-061f4b74669b"),
-                            ConcurrencyStamp = "19dfe672-0a0a-417a-8734-b1c2d6199522",
+                            ConcurrencyStamp = "3bd0198e-9fec-4b25-82b7-6ce28fbbb2bb",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("6ec808a4-e655-4304-acb8-ab6cc0fe485f"),
-                            ConcurrencyStamp = "b41befa9-3235-405e-9917-622d5be433ca",
+                            ConcurrencyStamp = "11917828-5c63-44c7-a603-8ad3e56c4b6d",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -180,7 +180,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("fc40cc76-ab31-4009-8a37-0136e80c88b7"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2470de9d-1d92-494e-8750-2eddd5c577d8",
+                            ConcurrencyStamp = "7edb1c75-1a7b-4916-a5fd-9c27594faad8",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Tarık",
@@ -189,10 +189,10 @@ namespace YoutubeBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFzzSDh7NDTTLIau40YPPwsFdnApDmLb4zLxqzhG+QcjkwXDSwgJceZvMGM7p0W3lw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI+hvqMM2gZT7mtWwl4RHWClpPegMSWVi7V/eQQ+w2HE3cQnSruX7iR1N9sNbkYDYw==",
                             PhoneNumber = "+90543999999",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "976fa708-7cdf-4e95-98cb-322dc2b6a612",
+                            SecurityStamp = "8997686d-9736-4e88-98f8-1ab5127cf11a",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@gmail.com"
                         },
@@ -200,7 +200,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("e3e6b42a-4c32-4044-83df-f1ed9ae65bfe"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "66bdc20a-ecbb-4207-9ff2-86934f8bcb06",
+                            ConcurrencyStamp = "acff5dbd-781b-4fe7-a5ce-8b8b8eded124",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Tekin",
@@ -209,10 +209,10 @@ namespace YoutubeBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAED7kW8wML3MDyB+pgwIG8QjwdGh/QHhUBMsiW5W4+0g8oaY81e9SzWQ8K7mw2TQCpA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPaMtdUqrNZPrjf+Eb+ZstvtPC929hgBjGRqfxQEsNt8oKNAwgZp5hxJqnzjgODW2A==",
                             PhoneNumber = "+90543999988",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "49235920-f9e9-4543-b1d6-23e3368e0356",
+                            SecurityStamp = "4a6dbd63-96fd-429e-8f6c-16b6321d8e11",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
@@ -332,10 +332,9 @@ namespace YoutubeBlog.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("ImageId")
@@ -345,10 +344,9 @@ namespace YoutubeBlog.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
@@ -374,34 +372,30 @@ namespace YoutubeBlog.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ff17970f-2913-4ebf-b3a8-99087b7e4b8a"),
+                            Id = new Guid("3b8ca186-15f8-4ea4-abd6-e8f201e39c62"),
                             CategoryId = new Guid("29713c56-e93a-475f-a596-ff19fe254b1f"),
                             Content = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6257),
+                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2253),
                             DeletedBy = "Admin",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageId = new Guid("00a5354d-0d30-4576-a128-78efcbed9849"),
                             IsDeleted = false,
                             ModifiedBy = "Adminn",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             UserId = new Guid("fc40cc76-ab31-4009-8a37-0136e80c88b7"),
                             ViewCount = 15
                         },
                         new
                         {
-                            Id = new Guid("79795576-4108-43cc-9d2b-0ea3a27eadaf"),
+                            Id = new Guid("b74805f1-6316-498c-9f3a-76d0ea43082e"),
                             CategoryId = new Guid("43df9b9a-a17f-449b-a79d-414a684e7350"),
                             Content = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6269),
+                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2259),
                             DeletedBy = "Admin",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageId = new Guid("be2c73cf-c312-485e-be69-7f7a7027829e"),
                             IsDeleted = false,
                             ModifiedBy = "Adminn",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
                             UserId = new Guid("e3e6b42a-4c32-4044-83df-f1ed9ae65bfe"),
                             ViewCount = 25
@@ -422,20 +416,18 @@ namespace YoutubeBlog.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -451,24 +443,20 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("29713c56-e93a-475f-a596-ff19fe254b1f"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6737),
+                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2413),
                             DeletedBy = "Admin",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             ModifiedBy = "Adminn",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Asp.Net Core"
                         },
                         new
                         {
                             Id = new Guid("43df9b9a-a17f-449b-a79d-414a684e7350"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6756),
+                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2416),
                             DeletedBy = "Admin",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             ModifiedBy = "Adminn",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Asp.Net Core"
                         });
                 });
@@ -487,10 +475,9 @@ namespace YoutubeBlog.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FileName")
@@ -505,10 +492,9 @@ namespace YoutubeBlog.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -520,27 +506,23 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("00a5354d-0d30-4576-a128-78efcbed9849"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6878),
+                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2490),
                             DeletedBy = "Admin",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileName = "images/testimage",
                             FileType = "abc",
                             IsDeleted = false,
-                            ModifiedBy = "Adminn",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedBy = "Adminn"
                         },
                         new
                         {
                             Id = new Guid("be2c73cf-c312-485e-be69-7f7a7027829e"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 15, 14, 51, 32, 804, DateTimeKind.Local).AddTicks(6881),
+                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2504),
                             DeletedBy = "Admin",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileName = "images/testimage",
                             FileType = "abc",
                             IsDeleted = false,
-                            ModifiedBy = "Adminn",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedBy = "Adminn"
                         });
                 });
 
