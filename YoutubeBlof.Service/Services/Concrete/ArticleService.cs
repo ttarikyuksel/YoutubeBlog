@@ -42,9 +42,17 @@ namespace YoutubeBlog.Service.Services.Concrete
             
             var articles =  await unitOfWork.GetRepository<Article>().GetAllAsync(x=>!x.IsDeleted,x=>x.Category);
             var map = mapper.Map<List<ArticleDto>>(articles);
+            return map;              
+        }
+
+        public async Task<ArticleDto> GetArticleWithCategoryNoneDeletedAsync(Guid articleId)
+        {
+
+            var articles = await unitOfWork.GetRepository<Article>().GetAsync(x => !x.IsDeleted && x.Id == articleId, x => x.Category);
+            var map = mapper.Map<ArticleDto>(articles);
             return map;
 
-              
+
         }
     }
 }

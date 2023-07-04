@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using YoutubeBlog.Entity.DTOs.Articles;
 using YoutubeBlog.Service.Services.Abstractions;
 
@@ -9,11 +10,13 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
     {
         private readonly IArticleService articleService;
         private readonly ICategoryService categoryService;
+        private readonly IMapper mapper;
 
-        public ArticleController(IArticleService articleService,ICategoryService categoryService)
+        public ArticleController(IArticleService articleService,ICategoryService categoryService,IMapper mapper)
         {
             this.categoryService = categoryService;
             this.articleService = articleService;
+            this.mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
@@ -39,7 +42,13 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(Guid articleId)
         {
-            return View();
+            var article = await articleService.GetArticleWithCategoryNoneDeletedAsync(articleId);
+            var categories = await categoryService.GetAllCategoriesNonDeleted();
+
+            var articleUpdateDto = mapper.Map<ArticleUpdateDto>(article);
+            articleUpdateDto.Categories = categories;
+
+            return View(articleUpdateDto);
         }
     }
 }
