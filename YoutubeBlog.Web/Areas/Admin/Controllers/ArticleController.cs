@@ -36,5 +36,10 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
             var categories = await categoryService.GetAllCategoriesNonDeleted();
             return View(new ArticleAddDto { Categories = categories });
         }
+        [HttpGet]
+        public async Task<IActionResult> Update(Guid articleId)
+        {
+            return View();
+        }
     }
 }
