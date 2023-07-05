@@ -13,7 +13,7 @@ namespace YoutubeBlog.Service.Services.Abstractions
     {
         Task<List<ArticleDto>> GetAllArticleWithCategoryNoneDeletedAsync();
         Task<ArticleDto> GetArticleWithCategoryNoneDeletedAsync(Guid articleId);
-
         Task CreateArticleAsync(ArticleAddDto articleAddDto);
+        Task UpdateArticleAsync(ArticleUpdateDto articleUpdateDto);
     }
 }

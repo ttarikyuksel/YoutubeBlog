@@ -15,6 +15,7 @@ namespace YoutubeBlog.Service.AutoMapper.Artices
         {
             CreateMap<ArticleDto,Article>().ReverseMap();
             CreateMap<ArticleUpdateDto,Article>().ReverseMap();
+            CreateMap<ArticleUpdateDto,ArticleDto>().ReverseMap();
 
         } 
     }

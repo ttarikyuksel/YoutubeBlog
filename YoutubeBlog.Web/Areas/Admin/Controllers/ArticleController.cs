@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using YoutubeBlog.Entity.DTOs.Articles;
+using YoutubeBlog.Entity.Entities;
 using YoutubeBlog.Service.Services.Abstractions;
 
 namespace YoutubeBlog.Web.Areas.Admin.Controllers
@@ -48,6 +49,15 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
             var articleUpdateDto = mapper.Map<ArticleUpdateDto>(article);
             articleUpdateDto.Categories = categories;
 
+            return View(articleUpdateDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(ArticleUpdateDto articleUpdateDto)
+        {
+            await articleService.UpdateArticleAsync(articleUpdateDto);
+            var categories = await categoryService.GetAllCategoriesNonDeleted();
+            articleUpdateDto.Categories = categories;
             return View(articleUpdateDto);
         }
     }
