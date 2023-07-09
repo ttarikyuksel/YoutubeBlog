@@ -53,21 +53,21 @@ namespace YoutubeBlog.Data.Migrations
                         new
                         {
                             Id = new Guid("bb002044-fbd8-4fbc-9ee9-e532b9bdb7be"),
-                            ConcurrencyStamp = "587a3bce-a24d-41a5-bb78-06cd47995809",
+                            ConcurrencyStamp = "be0ce7f3-1e77-42ea-a354-e722c138342b",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = new Guid("309720ca-5c91-47d7-88f7-061f4b74669b"),
-                            ConcurrencyStamp = "3bd0198e-9fec-4b25-82b7-6ce28fbbb2bb",
+                            ConcurrencyStamp = "3a0ec6a7-22fc-40de-a27f-48580096800b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("6ec808a4-e655-4304-acb8-ab6cc0fe485f"),
-                            ConcurrencyStamp = "11917828-5c63-44c7-a603-8ad3e56c4b6d",
+                            ConcurrencyStamp = "ad547a21-de2b-4882-9824-698de43962fd",
                             Name = "User",
                             NormalizedName = "User"
                         });
@@ -180,7 +180,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("fc40cc76-ab31-4009-8a37-0136e80c88b7"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7edb1c75-1a7b-4916-a5fd-9c27594faad8",
+                            ConcurrencyStamp = "cfb35f74-6de3-43b7-8ad9-0d11be37a13f",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Tarık",
@@ -189,10 +189,10 @@ namespace YoutubeBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEI+hvqMM2gZT7mtWwl4RHWClpPegMSWVi7V/eQQ+w2HE3cQnSruX7iR1N9sNbkYDYw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENZDg4Rih3WU60pkgpwyh4GA/4nzG0ddm+EaDZsRNpi0R/Mg26F6souhrvMD8oFziQ==",
                             PhoneNumber = "+90543999999",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "8997686d-9736-4e88-98f8-1ab5127cf11a",
+                            SecurityStamp = "a44d8e74-442c-42f4-909a-d6969258a519",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@gmail.com"
                         },
@@ -200,7 +200,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("e3e6b42a-4c32-4044-83df-f1ed9ae65bfe"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "acff5dbd-781b-4fe7-a5ce-8b8b8eded124",
+                            ConcurrencyStamp = "e8360a54-dede-454f-98d9-b260c0665b45",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Tekin",
@@ -209,10 +209,10 @@ namespace YoutubeBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPaMtdUqrNZPrjf+Eb+ZstvtPC929hgBjGRqfxQEsNt8oKNAwgZp5hxJqnzjgODW2A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKUH+p7EYYzt12WB1WieL9AMly6zLHd8wTiZcumi4CpDRlb8OM4+kAk8Ov3IFlYdkQ==",
                             PhoneNumber = "+90543999988",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4a6dbd63-96fd-429e-8f6c-16b6321d8e11",
+                            SecurityStamp = "d1f9422d-b614-430d-93f2-947497fb7c56",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
@@ -372,11 +372,11 @@ namespace YoutubeBlog.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3b8ca186-15f8-4ea4-abd6-e8f201e39c62"),
+                            Id = new Guid("002a55d7-f13b-4ce3-84f5-934443898b2a"),
                             CategoryId = new Guid("29713c56-e93a-475f-a596-ff19fe254b1f"),
                             Content = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2253),
+                            CreatedDate = new DateTime(2023, 7, 9, 17, 36, 10, 790, DateTimeKind.Local).AddTicks(5013),
                             DeletedBy = "Admin",
                             ImageId = new Guid("00a5354d-0d30-4576-a128-78efcbed9849"),
                             IsDeleted = false,
@@ -387,11 +387,11 @@ namespace YoutubeBlog.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b74805f1-6316-498c-9f3a-76d0ea43082e"),
+                            Id = new Guid("cd0853e1-f48c-4a38-acd9-873ea6018053"),
                             CategoryId = new Guid("43df9b9a-a17f-449b-a79d-414a684e7350"),
                             Content = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2259),
+                            CreatedDate = new DateTime(2023, 7, 9, 17, 36, 10, 790, DateTimeKind.Local).AddTicks(5020),
                             DeletedBy = "Admin",
                             ImageId = new Guid("be2c73cf-c312-485e-be69-7f7a7027829e"),
                             IsDeleted = false,
@@ -443,7 +443,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("29713c56-e93a-475f-a596-ff19fe254b1f"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2413),
+                            CreatedDate = new DateTime(2023, 7, 9, 17, 36, 10, 790, DateTimeKind.Local).AddTicks(5176),
                             DeletedBy = "Admin",
                             IsDeleted = false,
                             ModifiedBy = "Adminn",
@@ -453,7 +453,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("43df9b9a-a17f-449b-a79d-414a684e7350"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2416),
+                            CreatedDate = new DateTime(2023, 7, 9, 17, 36, 10, 790, DateTimeKind.Local).AddTicks(5179),
                             DeletedBy = "Admin",
                             IsDeleted = false,
                             ModifiedBy = "Adminn",
@@ -506,7 +506,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("00a5354d-0d30-4576-a128-78efcbed9849"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2490),
+                            CreatedDate = new DateTime(2023, 7, 9, 17, 36, 10, 790, DateTimeKind.Local).AddTicks(5327),
                             DeletedBy = "Admin",
                             FileName = "images/testimage",
                             FileType = "abc",
@@ -517,7 +517,7 @@ namespace YoutubeBlog.Data.Migrations
                         {
                             Id = new Guid("be2c73cf-c312-485e-be69-7f7a7027829e"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 6, 20, 16, 50, 46, 470, DateTimeKind.Local).AddTicks(2504),
+                            CreatedDate = new DateTime(2023, 7, 9, 17, 36, 10, 790, DateTimeKind.Local).AddTicks(5330),
                             DeletedBy = "Admin",
                             FileName = "images/testimage",
                             FileType = "abc",

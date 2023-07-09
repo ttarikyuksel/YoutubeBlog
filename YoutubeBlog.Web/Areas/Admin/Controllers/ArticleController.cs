@@ -13,7 +13,7 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
         private readonly ICategoryService categoryService;
         private readonly IMapper mapper;
 
-        public ArticleController(IArticleService articleService,ICategoryService categoryService,IMapper mapper)
+        public ArticleController(IArticleService articleService, ICategoryService categoryService, IMapper mapper)
         {
             this.categoryService = categoryService;
             this.articleService = articleService;
@@ -30,7 +30,7 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Add()
         {
             var categories = await categoryService.GetAllCategoriesNonDeleted();
-            return View(new ArticleAddDto { Categories = categories }); 
+            return View(new ArticleAddDto { Categories = categories });
         }
         [HttpPost]
         public async Task<IActionResult> Add(ArticleAddDto articleAddDto)
@@ -60,5 +60,14 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
             articleUpdateDto.Categories = categories;
             return View(articleUpdateDto);
         }
+
+        public async Task<IActionResult> Delete(Guid articleId)
+        {
+            await articleService.SafeDeleteArticleAsync(articleId);
+            return RedirectToAction("Index", "Article", new { Areas = "Admin" });
+        }
+
+
+
     }
 }
