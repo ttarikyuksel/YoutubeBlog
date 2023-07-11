@@ -8,6 +8,7 @@ using YoutubeBlog.Data.UnitOfWorks;
 using YoutubeBlog.Entity.DTOs.Articles;
 using YoutubeBlog.Entity.Entities;
 using YoutubeBlog.Service.Services.Abstractions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace YoutubeBlog.Service.Services.Concrete
 {
@@ -24,14 +25,9 @@ namespace YoutubeBlog.Service.Services.Concrete
         public async Task CreateArticleAsync(ArticleAddDto articleAddDto)
         {
             var userId = Guid.Parse("FC40CC76-AB31-4009-8A37-0136E80C88B7");
-            var article = new Article
-            {
-                Title = articleAddDto.Title,
-                Content = articleAddDto.Content,
-                CategoryId = articleAddDto.CategoryId,
-                UserId = userId
-                
-            };
+            var imageId = Guid.Parse("00A5354D-0D30-4576-A128-78EFCBED9849");
+            var article = new Article(articleAddDto.Title, articleAddDto.Content, userId, articleAddDto.CategoryId, imageId);
+           
 
             await unitOfWork.GetRepository<Article>().AddAsync(article);
             await unitOfWork.SaveAsync();
