@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using NToastNotify;
 using YoutubeBlog.Entity.DTOs.Articles;
 using YoutubeBlog.Entity.Entities;
 using YoutubeBlog.Service.Extensions;
@@ -15,13 +16,15 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
         private readonly ICategoryService categoryService;
         private readonly IMapper mapper;
         private readonly IValidator<Article> validator;
+        private readonly IToastNotification toast;
 
-        public ArticleController(IArticleService articleService, ICategoryService categoryService, IMapper mapper,IValidator<Article> validator)
+        public ArticleController(IArticleService articleService, ICategoryService categoryService, IMapper mapper,IValidator<Article> validator,IToastNotification toastNotification)
         {
             this.categoryService = categoryService;
             this.articleService = articleService;
             this.mapper = mapper;
             this.validator = validator;
+            this.toast = toastNotification;
         }
 
         public async Task<IActionResult> Index()
@@ -45,6 +48,7 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
             if (result.IsValid)
             {
                 await articleService.CreateArticleAsync(articleAddDto);
+                toast.AddSuccessToastMessage("İşlem başarılı.", new ToastrOptions { Title="Başarılı!"});
                 return RedirectToAction("Index", "Article", new { Areas = "Admin" });
             }
             else
