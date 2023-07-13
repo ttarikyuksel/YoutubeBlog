@@ -6,6 +6,7 @@ using YoutubeBlog.Entity.DTOs.Articles;
 using YoutubeBlog.Entity.Entities;
 using YoutubeBlog.Service.Extensions;
 using YoutubeBlog.Service.Services.Abstractions;
+using YoutubeBlog.Web.ResultMessages;
 
 namespace YoutubeBlog.Web.Areas.Admin.Controllers
 {
@@ -18,7 +19,7 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
         private readonly IValidator<Article> validator;
         private readonly IToastNotification toast;
 
-        public ArticleController(IArticleService articleService, ICategoryService categoryService, IMapper mapper,IValidator<Article> validator,IToastNotification toastNotification)
+        public ArticleController(IArticleService articleService, ICategoryService categoryService, IMapper mapper, IValidator<Article> validator, IToastNotification toastNotification)
         {
             this.categoryService = categoryService;
             this.articleService = articleService;
@@ -48,12 +49,12 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
             if (result.IsValid)
             {
                 await articleService.CreateArticleAsync(articleAddDto);
-                toast.AddSuccessToastMessage("İşlem başarılı.", new ToastrOptions { Title="Başarılı!"});
+                toast.AddSuccessToastMessage(Messages.Article.Add(articleAddDto.Title), new ToastrOptions { Title = "Başarılı!" });
                 return RedirectToAction("Index", "Article", new { Areas = "Admin" });
             }
             else
             {
-                result.AddToModelState(this.ModelState);                
+                result.AddToModelState(this.ModelState);
             }
             var categories = await categoryService.GetAllCategoriesNonDeleted();
             return View(new ArticleAddDto { Categories = categories });
@@ -79,7 +80,10 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
 
             if (result.IsValid)
             {
-                await articleService.UpdateArticleAsync(articleUpdateDto);
+                var title = await articleService.UpdateArticleAsync(articleUpdateDto);
+                toast.AddSuccessToastMessage(Messages.Article.Update(title), new ToastrOptions() { Title = "İşlem Başarılı" });
+                return RedirectToAction("Index", "Article", new { Areas = "Admin" });
+
             }
             else
             {
@@ -92,7 +96,8 @@ namespace YoutubeBlog.Web.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(Guid articleId)
         {
-            await articleService.SafeDeleteArticleAsync(articleId);
+            var title = await articleService.SafeDeleteArticleAsync(articleId);
+            toast.AddSuccessToastMessage(Messages.Article.Delete(title), new ToastrOptions() { Title = "İşlem Başarılı" });
             return RedirectToAction("Index", "Article", new { Areas = "Admin" });
         }
 
