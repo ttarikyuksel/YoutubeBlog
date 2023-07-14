@@ -9,11 +9,11 @@ using YoutubeBlog.Entity.Entities;
 
 namespace YoutubeBlog.Data.Mappings
 {
-    public class ImageMap : IEntityTypeConfiguration<Image>
+    public class ImageMap : IEntityTypeConfiguration<Images>
     {
-        public void Configure(EntityTypeBuilder<Image> builder)
+        public void Configure(EntityTypeBuilder<Images> builder)
         {
-            builder.HasData(new Image
+            builder.HasData(new Images
             {
                 Id = Guid.Parse("00A5354D-0D30-4576-A128-78EFCBED9849"),
                 FileName = "images/testimage",
@@ -25,7 +25,7 @@ namespace YoutubeBlog.Data.Mappings
                 FileType ="abc"
             }
             ,
-            new Image
+            new Images
             {
                 Id = Guid.Parse("BE2C73CF-C312-485E-BE69-7F7A7027829E"),
                 FileName = "images/testimage",

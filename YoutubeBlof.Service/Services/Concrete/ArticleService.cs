@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using YoutubeBlog.Data.UnitOfWorks;
 using YoutubeBlog.Entity.DTOs.Articles;
 using YoutubeBlog.Entity.Entities;
+using YoutubeBlog.Entity.Enums;
 using YoutubeBlog.Service.Extensions;
+using YoutubeBlog.Service.Helpers.Images;
 using YoutubeBlog.Service.Services.Abstractions;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -20,11 +22,13 @@ namespace YoutubeBlog.Service.Services.Concrete
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
         private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IImageHelper imageHelper;
         private readonly ClaimsPrincipal _user;
 
-        public ArticleService(IUnitOfWork unitOfWork,IMapper mapper,IHttpContextAccessor httpContextAccessor)
+        public ArticleService(IUnitOfWork unitOfWork,IMapper mapper,IHttpContextAccessor httpContextAccessor,IImageHelper imageHelper)
         {
             this.httpContextAccessor = httpContextAccessor;
+            this.imageHelper = imageHelper;
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
             _user = httpContextAccessor.HttpContext.User;
@@ -37,8 +41,12 @@ namespace YoutubeBlog.Service.Services.Concrete
             var userId = _user.GetLoggedInUserId();
             var userEmail = _user.GetLoggedInEmail();
 
-            var imageId = Guid.Parse("00A5354D-0D30-4576-A128-78EFCBED9849");
-            var article = new Article(articleAddDto.Title, articleAddDto.Content, userId,userEmail, articleAddDto.CategoryId, imageId);
+            var imageUpload = await imageHelper.Upload(articleAddDto.Title, articleAddDto.Photo, ImageType.Post);
+
+            Images image = new(imageUpload.FullName,articleAddDto.Photo.ContentType,userEmail);
+            await unitOfWork.GetRepository<Images>().AddAsync(image);
+
+            var article = new Article(articleAddDto.Title, articleAddDto.Content, userId,userEmail, articleAddDto.CategoryId, image.Id);
            
 
             await unitOfWork.GetRepository<Article>().AddAsync(article);

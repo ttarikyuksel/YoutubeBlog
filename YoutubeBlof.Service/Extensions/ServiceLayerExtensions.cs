@@ -15,6 +15,7 @@ using YoutubeBlog.Data.Repositories.Abstraction;
 using YoutubeBlog.Data.Repositories.Concretes;
 using YoutubeBlog.Data.UnitOfWorks;
 using YoutubeBlog.Service.FluentValidations;
+using YoutubeBlog.Service.Helpers.Images;
 using YoutubeBlog.Service.Services.Abstractions;
 using YoutubeBlog.Service.Services.Concrete;
 
@@ -28,6 +29,8 @@ namespace YoutubeBlog.Service.Extensions
 
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IImageHelper,ImageHelper>();
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddAutoMapper(assembly);
